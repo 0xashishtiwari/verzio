@@ -13,13 +13,13 @@ yargs(hideBin(process.argv))
 .command('add <file>' ,'Add a file to repository' , (yargs)=>{yargs.positional("file" , {
     describe : "File sent to staging area",
     type : 'string'
-})} , addRepo)
+})} , (argv)=>{addRepo(argv.file)})
 .command('commit <message>' ,'Commit the staged file', (yargs)=>{
     yargs.positional("message", {
         describe : "Commit message",
         type : 'string'
     })
-} , commitRepo)
+} , (argv)=>{commitRepo(argv.message)})
 .command('push' ,'Push commits to S3' , {} , pushRepo)
 .command('pull' ,'Pull commits from S3' , {} , pullRepo)
 .command('revert <commitId> ' ,'Revert to the commit id ' , (yargs)=>{
