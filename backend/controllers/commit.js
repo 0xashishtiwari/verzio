@@ -20,7 +20,7 @@ async function commitRepo(message) {
         }
         await fs.writeFile(path.join(commitDir, 'commit.json') , JSON.stringify({message , date : new Date().toISOString()}));
 
-        console.log(chalk.green.bold(`Commit ${commitID} created with message ${message}`));
+        console.log(chalk.green.bold( `\n CommitID : ${commitID} created with message : ${message} \n`));
    } catch (error) {
     console.log(chalk.red.bold('Error commiting files' , error));
    }
