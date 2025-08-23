@@ -22,10 +22,16 @@ const signup = async (req, res) => {
       await connectClient();
       const db = client.db("verzio");
       const userCollection = db.collection("users");
-
-      const user = await userCollection.findOne({username});
+      
+      let user = await userCollection.findOne({username});
+       
       if(user){
         return res.status(400).json({message : "Username already exists"});
+
+      }
+      user = await userCollection.findOne({email});
+      if(user){
+        return res.status(400).json({message : "Email already exists"});
 
       }
 
@@ -43,10 +49,11 @@ const signup = async (req, res) => {
       
       const result = await userCollection.insertOne(newUser);
       // console.log(result);
-      const token = jwt.sign( { id:result.insertId} , process.env.JWT_SECRET_KEY, {
+      const token = jwt.sign( { id:result.insertedId} , process.env.JWT_SECRET_KEY, {
         expiresIn : "1h"
       })
-      res.json({token});
+      
+      return res.json({token , userId : result.insertedId});
     } catch (error) {
         console.error(chalk.redBright("Error during signup : " , error.message))
         res.status(500).send("Server error");
@@ -76,7 +83,7 @@ const login = async (req, res) => {
       }
 
       const token = jwt.sign({id:user._id} , process.env.JWT_SECRET_KEY , {expiresIn : "1h"})
-      res.json({token , userId : user._id});
+    return   res.json({token , userId : user._id});
   } catch (err) {
       console.error(chalk.red('Error during login :' , err.message));
       res.status(500).json({message : "Server error"})
@@ -110,7 +117,7 @@ const getUserProfile = async(req, res) => {
       if(!user){
         return res.status(400).json({message : "user not found"});
       }
-      res.send(user);
+    return    res.send(user);
   } catch (err) {
       console.error(chalk.red('Error during fetching user :' , err.message));
       res.status(500).json({message : "Server error"})

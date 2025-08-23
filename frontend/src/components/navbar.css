@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #161b22; /* GitHub dark navbar */
+  padding: 12px 24px;
+  border-bottom: 1px solid #30363d;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #f0f6fc;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navbar-logo i {
+  font-size: 20px;
+  color: #58a6ff; /* GitHub blue */
+}
+.navbar-logo h3 {
+  margin-top: 12px;
+
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+.navbar-logo i {
+  color: #1a992f;
+  margin-right: 8px;
+}
+
+
+.navbar-links a {
+  text-decoration: none;
+  color: #e6edf3;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: #58a6ff;
+}

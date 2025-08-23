@@ -96,7 +96,7 @@ const getIssueById = async(req, res) => {
 
 module.exports = {
   createIssue,
-  updateIssue,
+
   updateIssueById,
   deleteIssueById,
   getAllIssues,

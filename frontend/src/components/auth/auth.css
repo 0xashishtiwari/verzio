@@ -1,0 +1,81 @@
+/* Full screen center */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0d1117; /* GitHub dark */
+  color: #e6edf3;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Box styling */
+.auth-box {
+  background: #161b22;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #30363d;
+  width: 360px;
+  text-align: center;
+}
+
+.auth-box h2 {
+  margin-bottom: 20px;
+  color: #f0f6fc;
+}
+
+/* Inputs */
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: #e6edf3;
+  font-size: 14px;
+}
+
+.auth-box input:focus {
+  outline: none;
+  border-color: #58a6ff;
+}
+
+/* Button */
+.auth-box button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #238636; /* GitHub green */
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-box button:hover {
+  background: #2ea043;
+}
+
+.auth-box button:disabled {
+  background: #30363d;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.auth-footer {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #8b949e;
+}
+
+.auth-link {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
